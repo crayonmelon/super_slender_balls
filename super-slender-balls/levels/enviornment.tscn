@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="1_eroau"]
 [ext_resource type="AudioStream" uid="uid://b3v46slfwltjp" path="res://audio/628569__danilgamedev__scary-music.ogg" id="2_c43vm"]
-[ext_resource type="Shader" path="res://levels/crt.gdshader" id="3_kuent"]
-[ext_resource type="Shader" path="res://levels/buckshot.gdshader" id="4_u32p2"]
+[ext_resource type="Shader" uid="uid://bojn38py1nsg3" path="res://levels/crt.gdshader" id="3_kuent"]
+[ext_resource type="Shader" uid="uid://cff8xv7thi1tp" path="res://levels/buckshot.gdshader" id="4_u32p2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw3c"]
 panorama = ExtResource("1_eroau")
@@ -32,25 +32,25 @@ adjustment_contrast = 1.35
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u32p2"]
 shader = ExtResource("3_kuent")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3230000153425
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.11200000532
+shader_parameter/grille_opacity = 0.114000005415
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = true
-shader_parameter/roll = true
+shader_parameter/roll = false
 shader_parameter/roll_speed = 10.1
-shader_parameter/roll_size = 2.35600011191
+shader_parameter/roll_size = 5.62400026714
 shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_opacity = 0.158000007505
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.15200000722
-shader_parameter/aberration = 0.03
-shader_parameter/brightness = 3.255
+shader_parameter/aberration = 0.004000047689999953
+shader_parameter/brightness = 2.34
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 1.0
+shader_parameter/warp_amount = 0.44400002109
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_intensity = 0.645
 shader_parameter/vignette_opacity = 0.6150000292125
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sjpmn"]
@@ -87,7 +87,6 @@ directional_shadow_blend_splits = true
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-visible = false
 material = SubResource("ShaderMaterial_u32p2")
 anchors_preset = 15
 anchor_right = 1.0

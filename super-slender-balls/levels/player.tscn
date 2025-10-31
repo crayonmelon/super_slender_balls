@@ -298,6 +298,21 @@ radius = 2.666938
 [sub_resource type="SphereShape3D" id="SphereShape3D_r3jqh"]
 radius = 2.9196587
 
+[sub_resource type="Animation" id="Animation_wnbtv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.496911e-07, 9, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_11i6m"]
 resource_name = "loop"
 loop_mode = 2
@@ -312,21 +327,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-3.496911e-07, 9, 0), Vector3(0, 8, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_wnbtv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-3.496911e-07, 9, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wnbtv"]
@@ -347,7 +347,7 @@ script = ExtResource("1_r3jqh")
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5671556)
 light_color = Color(0.76649, 0.75576544, 0.5970249, 1)
-light_energy = 5000.0
+light_energy = 500.0
 light_specular = 0.0
 spot_range = 46.735
 
