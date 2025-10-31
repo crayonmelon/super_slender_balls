@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var scene : PackedScene
+@export var scene : String
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var audio_stream_player: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer
@@ -15,7 +15,7 @@ func page_entered(body:Node3D) -> void:
 	
 	await get_tree().create_timer(2).timeout
 	
-	get_tree().change_scene_to_packed(scene)
+	get_tree().change_scene_to_file(scene)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("RESTART"):

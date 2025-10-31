@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://kmop5tkxwobn"]
+[gd_scene load_steps=21 format=4 uid="uid://kmop5tkxwobn"]
 
 [ext_resource type="Script" uid="uid://cx1dbrpgsovne" path="res://levels/level_logic.gd" id="1_86l0o"]
-[ext_resource type="PackedScene" uid="uid://cv5rg3ds27lji" path="res://levels/level_3.tscn" id="2_4pmw3"]
 [ext_resource type="Script" uid="uid://b7ttakutk2ntq" path="res://levels/tilt_controls.gd" id="3_38k6x"]
 [ext_resource type="Texture2D" uid="uid://cveu8618jpe6s" path="res://Screenshot From 2025-10-31 16-55-24.png" id="4_cl460"]
 [ext_resource type="Texture2D" uid="uid://qqe0pfuherfn" path="res://images/ezgif-767b13df9446a2.png" id="5_sbxnr"]
@@ -80,7 +79,7 @@ radius = 5.8807077
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("area_3d")]
 script = ExtResource("1_86l0o")
-scene = ExtResource("2_4pmw3")
+scene = "uid://bqxpg8c74gkvk"
 area_3d = NodePath("TiltControls/Area3D")
 
 [node name="TiltControls" type="Node3D" parent="."]
