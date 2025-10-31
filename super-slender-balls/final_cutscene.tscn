@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctd6lbdm24cd4"]
+
+[ext_resource type="VideoStream" uid="uid://qmd6sdgfl4tj" path="res://levels/0001-0250.ogv" id="1_66xwh"]
+[ext_resource type="Script" uid="uid://c0egx8vu5ikq" path="res://final_cutscene.gd" id="1_dx53c"]
+[ext_resource type="AudioStream" uid="uid://b52qqlowwfxcf" path="res://audio/isthatmywife.ogg" id="3_hr5vx"]
+[ext_resource type="VideoStream" uid="uid://tkvswneje05a" path="res://slendeam.ogv" id="3_m3004"]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_dx53c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(960, 540)
+stream = ExtResource("1_66xwh")
+autoplay = true
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(960, 540)
+stream = ExtResource("3_m3004")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -556.0
+offset_top = -304.0
+offset_right = 597.0
+offset_bottom = 345.0
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_font_sizes/normal_font_size = 100
+text = "GAME END"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hr5vx")
+autoplay = true

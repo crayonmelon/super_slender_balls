@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent)-> void:
-	if event.is_action_pressed("START") and mouse_in:
+	if event.is_action_pressed("START"):
 		get_tree().change_scene_to_packed(level_1)
 
 

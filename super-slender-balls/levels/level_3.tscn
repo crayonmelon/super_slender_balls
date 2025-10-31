@@ -172,7 +172,7 @@ script = ExtResource("2_q42ux")
 [node name="level" type="Node3D" parent="TiltControls"]
 
 [node name="Area3D" type="Area3D" parent="TiltControls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 23, -44)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.890621, 10.522808, -26.188406)
 collision_layer = 0
 collision_mask = 2
 
