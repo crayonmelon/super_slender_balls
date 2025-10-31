@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://brl64dwoba154"]
+[gd_scene load_steps=18 format=4 uid="uid://brl64dwoba154"]
 
 [ext_resource type="Script" uid="uid://b8ldosqc0xolx" path="res://levels/player.gd" id="1_r3jqh"]
 [ext_resource type="Texture2D" uid="uid://bhq0ydu3yg2v3" path="res://slenderman_NonOverlapping.png" id="2_r3jqh"]
+[ext_resource type="Texture2D" uid="uid://cwu4kd6vanu7f" path="res://arrow.png" id="3_11i6m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jirdo"]
 rough = true
@@ -297,6 +298,43 @@ radius = 2.666938
 [sub_resource type="SphereShape3D" id="SphereShape3D_r3jqh"]
 radius = 2.9196587
 
+[sub_resource type="Animation" id="Animation_11i6m"]
+resource_name = "loop"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.496911e-07, 9, 0), Vector3(0, 8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wnbtv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.496911e-07, 9, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wnbtv"]
+_data = {
+&"RESET": SubResource("Animation_wnbtv"),
+&"loop": SubResource("Animation_11i6m")
+}
+
 [node name="player" type="RigidBody3D"]
 collision_layer = 2
 mass = 1000.0
@@ -354,5 +392,24 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_r3jqh")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../Node3D")
+update_rotation = false
+
+[node name="Node3D" type="Node3D" parent="."]
+top_level = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -3.496911e-07, 9, 0)
+pixel_size = 0.025
+billboard = 2
+texture = ExtResource("3_11i6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_wnbtv")
+}
+autoplay = "loop"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
