@@ -17,3 +17,6 @@ func page_entered(body:Node3D) -> void:
 	
 	get_tree().change_scene_to_packed(scene)
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("RESTART"):
+		get_tree().reload_current_scene()

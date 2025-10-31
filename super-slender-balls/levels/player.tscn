@@ -6,6 +6,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jirdo"]
 rough = true
+absorbent = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kx6l7"]
 bottom_radius = 0.0
@@ -293,7 +294,7 @@ bind/58/bone = -1
 bind/58/pose = Transform3D(-4.7849664e-08, 5.692433e-07, -1.1235666, -1.123566, 7.337455e-08, -6.426741e-07, -2.0546375e-08, 1.1235657, 1.0045469e-07, -0.045900043, -0.1627035, -4.5437673e-08)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_11i6m"]
-radius = 2.666938
+radius = 4.2031584
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r3jqh"]
 radius = 2.9196587
@@ -339,7 +340,7 @@ _data = {
 collision_layer = 2
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_jirdo")
-gravity_scale = 4.0
+gravity_scale = 8.0
 can_sleep = false
 freeze_mode = 1
 script = ExtResource("1_r3jqh")
@@ -370,7 +371,7 @@ omni_range = 48.776
 omni_attenuation = 3.062
 
 [node name="slenderman" type="Node3D" parent="."]
-transform = Transform3D(2.4433198, 0, 0, 0, 2.4433198, 0, 0, 0, 2.4433198, 0, -2.5942411, 0)
+transform = Transform3D(3.773, 0, 0, 0, 3.773, 0, 0, 0, 3.773, 0, -3.5942411, 0)
 
 [node name="Sphere" type="MeshInstance3D" parent="slenderman"]
 transform = Transform3D(1.0967793, 0, 0, 0, 1.0967793, 0, 0, 0, 1.0967793, 0, 0.9520577, 0)
@@ -411,5 +412,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_wnbtv")
 }
 autoplay = "loop"
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

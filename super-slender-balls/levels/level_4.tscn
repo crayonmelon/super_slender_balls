@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://d1dv2gepk1jdq"]
+[gd_scene load_steps=31 format=4 uid="uid://d1dv2gepk1jdq"]
 
 [ext_resource type="Script" uid="uid://cx1dbrpgsovne" path="res://levels/level_logic.gd" id="1_qhnv2"]
+[ext_resource type="PackedScene" uid="uid://igij0jw3rn6b" path="res://levels/level_5.tscn" id="2_5oqfd"]
 [ext_resource type="Script" uid="uid://b7ttakutk2ntq" path="res://levels/tilt_controls.gd" id="2_vru0x"]
 [ext_resource type="Texture2D" uid="uid://qqe0pfuherfn" path="res://images/ezgif-767b13df9446a2.png" id="3_5oqfd"]
 [ext_resource type="Texture2D" uid="uid://cveu8618jpe6s" path="res://Screenshot From 2025-10-31 16-55-24.png" id="4_8mt0c"]
@@ -8,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://x1opf5xfyjt3" path="res://PineBark.png" id="6_a7qdg"]
 [ext_resource type="FontFile" uid="uid://d6syny3w6ioq" path="res://fonts/newSlendermanswriting.ttf" id="7_g1ha7"]
 [ext_resource type="AudioStream" uid="uid://bdrlnk8upw0ph" path="res://audio/pagecollected.ogg" id="8_52a3b"]
-[ext_resource type="AudioStream" uid="uid://c1ahjtwq457yx" path="res://audio/8pages.ogg" id="9_3ff1r"]
 [ext_resource type="PackedScene" uid="uid://ckw3maubvj6ed" path="res://levels/playerCatcher.tscn" id="10_cmohj"]
+[ext_resource type="AudioStream" uid="uid://bt3y42oruafug" path="res://audio/transrights.ogg" id="10_vru0x"]
 [ext_resource type="PackedScene" uid="uid://cs1gtndoyootr" path="res://levels/enviornment.tscn" id="11_bv8dl"]
 [ext_resource type="PackedScene" uid="uid://brl64dwoba154" path="res://levels/player.tscn" id="12_uhmd0"]
 [ext_resource type="PackedScene" uid="uid://sd8hwibrnyrk" path="res://levels/feraldog.tscn" id="13_8c4vb"]
@@ -163,6 +164,7 @@ data = PackedVector3Array(-1.5136, 11.9993, -0.0796, -0.1876, 12.4588995, 0.0614
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("area_3d")]
 script = ExtResource("1_qhnv2")
+scene = ExtResource("2_5oqfd")
 area_3d = NodePath("TiltControls/Area3D")
 
 [node name="TiltControls" type="Node3D" parent="."]
@@ -180,12 +182,13 @@ mesh = SubResource("ArrayMesh_vru0x")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="TiltControls/level/level4/Plane"]
+sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TiltControls/level/level4/Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5oqfd")
 
 [node name="Area3D" type="Area3D" parent="TiltControls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0242, 35.096905, -2.3185005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.402042, 19.314375, -33.3185)
 collision_layer = 0
 collision_mask = 2
 
@@ -277,7 +280,7 @@ vertical_alignment = 1
 stream = ExtResource("8_52a3b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_3ff1r")
+stream = ExtResource("10_vru0x")
 volume_db = 10.0
 autoplay = true
 

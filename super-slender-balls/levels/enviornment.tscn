@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs1gtndoyootr"]
+[gd_scene load_steps=15 format=3 uid="uid://cs1gtndoyootr"]
 
 [ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="1_eroau"]
 [ext_resource type="AudioStream" uid="uid://b3v46slfwltjp" path="res://audio/628569__danilgamedev__scary-music.ogg" id="2_c43vm"]
-[ext_resource type="Shader" uid="uid://bojn38py1nsg3" path="res://levels/crt.gdshader" id="3_kuent"]
-[ext_resource type="Shader" uid="uid://cff8xv7thi1tp" path="res://levels/buckshot.gdshader" id="4_u32p2"]
+[ext_resource type="Shader" path="res://levels/crt.gdshader" id="3_kuent"]
+[ext_resource type="Shader" path="res://levels/buckshot.gdshader" id="4_u32p2"]
+[ext_resource type="FontFile" uid="uid://d6syny3w6ioq" path="res://fonts/newSlendermanswriting.ttf" id="5_p6h5g"]
+[ext_resource type="AudioStream" uid="uid://bdrlnk8upw0ph" path="res://audio/pagecollected.ogg" id="6_qgdc7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw3c"]
 panorama = ExtResource("1_eroau")
@@ -45,7 +47,7 @@ shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.158000007505
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.15200000722
-shader_parameter/aberration = 0.004000047689999953
+shader_parameter/aberration = 0.00400004768999995
 shader_parameter/brightness = 2.34
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.44400002109
@@ -69,6 +71,43 @@ shader_parameter/grain_strength = 0.2
 shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
 shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_nmsli"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_betor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_betor"]
+_data = {
+&"RESET": SubResource("Animation_betor"),
+&"show": SubResource("Animation_nmsli")
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_lrvbd")
@@ -103,3 +142,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="R to restart" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="R to restart"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="R to restart/Control"]
+layout_mode = 1
+offset_right = 59.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("5_p6h5g")
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[shake]R"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="R to restart/Control"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 25.0
+offset_right = 238.0
+offset_bottom = 96.0
+theme_override_fonts/normal_font = ExtResource("5_p6h5g")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake]to restart"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="R to restart"]
+stream = ExtResource("6_qgdc7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="R to restart"]
+libraries = {
+&"": SubResource("AnimationLibrary_betor")
+}
+autoplay = "show"

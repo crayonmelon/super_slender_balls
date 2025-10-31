@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=4 uid="uid://bjdjurgpdjdmm"]
 
-[ext_resource type="Script" path="res://main_level.gd" id="1_5ymk8"]
+[ext_resource type="Script" uid="uid://ce682fywf57hm" path="res://main_level.gd" id="1_5ymk8"]
 [ext_resource type="Texture2D" uid="uid://c6ncl4b8thrft" path="res://pattern_276.png" id="1_6614m"]
 [ext_resource type="Texture2D" uid="uid://bhq0ydu3yg2v3" path="res://slenderman_NonOverlapping.png" id="1_bw3m6"]
 [ext_resource type="PackedScene" uid="uid://ci06x5w4t4ksu" path="res://levels/level_1.tscn" id="2_4mnpp"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bkev3r5j7ekpw" path="res://SUPER_SLENDER_BALLS.png" id="7_ctebd"]
 [ext_resource type="Texture2D" uid="uid://imd46olsk0oi" path="res://images/blood splatter.png" id="7_oeaww"]
 [ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="8_5fjre"]
-[ext_resource type="Shader" uid="uid://bojn38py1nsg3" path="res://levels/crt.gdshader" id="9_oeaww"]
-[ext_resource type="Shader" uid="uid://cff8xv7thi1tp" path="res://levels/buckshot.gdshader" id="10_aonjr"]
+[ext_resource type="Shader" path="res://levels/crt.gdshader" id="9_oeaww"]
+[ext_resource type="Shader" path="res://levels/buckshot.gdshader" id="10_aonjr"]
 [ext_resource type="Texture2D" uid="uid://bsdarprqujsjt" path="res://feral dog_feral dog texture.png" id="12_aonjr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do8ha"]
@@ -376,7 +376,7 @@ shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.158000007505
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.15200000722
-shader_parameter/aberration = 0.004000047689999953
+shader_parameter/aberration = 0.00400004768999995
 shader_parameter/brightness = 1.935
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.44400002109
@@ -845,6 +845,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_6614m")
 stretch_mode = 1
 
@@ -884,6 +885,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="WorldEnvironment/CanvasLayer2"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=30 format=4 uid="uid://cv5rg3ds27lji"]
+[gd_scene load_steps=31 format=4 uid="uid://cv5rg3ds27lji"]
 
 [ext_resource type="Script" uid="uid://cx1dbrpgsovne" path="res://levels/level_logic.gd" id="1_0unm6"]
 [ext_resource type="Script" uid="uid://b7ttakutk2ntq" path="res://levels/tilt_controls.gd" id="2_q42ux"]
+[ext_resource type="PackedScene" uid="uid://d1dv2gepk1jdq" path="res://levels/level_4.tscn" id="2_wi0qq"]
 [ext_resource type="Texture2D" uid="uid://cveu8618jpe6s" path="res://Screenshot From 2025-10-31 16-55-24.png" id="3_wi0qq"]
 [ext_resource type="Texture2D" uid="uid://qqe0pfuherfn" path="res://images/ezgif-767b13df9446a2.png" id="5_u4kh1"]
 [ext_resource type="FontFile" uid="uid://d6syny3w6ioq" path="res://fonts/newSlendermanswriting.ttf" id="6_svivd"]
 [ext_resource type="AudioStream" uid="uid://bdrlnk8upw0ph" path="res://audio/pagecollected.ogg" id="7_yafm2"]
-[ext_resource type="AudioStream" uid="uid://c1ahjtwq457yx" path="res://audio/8pages.ogg" id="8_46211"]
 [ext_resource type="PackedScene" uid="uid://ckw3maubvj6ed" path="res://levels/playerCatcher.tscn" id="9_t5hu4"]
 [ext_resource type="PackedScene" uid="uid://cs1gtndoyootr" path="res://levels/enviornment.tscn" id="10_eg35p"]
+[ext_resource type="AudioStream" uid="uid://ds5jy5gqi5vl3" path="res://audio/scarymanmountain.ogg" id="10_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://brl64dwoba154" path="res://levels/player.tscn" id="11_67vg4"]
 [ext_resource type="PackedScene" uid="uid://sd8hwibrnyrk" path="res://levels/feraldog.tscn" id="12_mqvtj"]
 [ext_resource type="Texture2D" uid="uid://bljuxoi2xbgf4" path="res://PineBranch.png" id="12_q42ux"]
@@ -163,6 +164,7 @@ data = PackedVector3Array(-1.5136, 11.9993, -0.0796, -0.1876, 12.4588995, 0.0614
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("area_3d")]
 script = ExtResource("1_0unm6")
+scene = ExtResource("2_wi0qq")
 area_3d = NodePath("TiltControls/Area3D")
 
 [node name="TiltControls" type="Node3D" parent="."]
@@ -276,7 +278,7 @@ vertical_alignment = 1
 stream = ExtResource("7_yafm2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_46211")
+stream = ExtResource("10_wi0qq")
 volume_db = 10.0
 autoplay = true
 
