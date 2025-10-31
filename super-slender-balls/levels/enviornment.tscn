@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs1gtndoyootr"]
+
+[ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="1_eroau"]
+[ext_resource type="AudioStream" uid="uid://b3v46slfwltjp" path="res://audio/628569__danilgamedev__scary-music.ogg" id="2_c43vm"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw3c"]
+panorama = ExtResource("1_eroau")
+
+[sub_resource type="Sky" id="Sky_vn7o3"]
+sky_material = SubResource("PanoramaSkyMaterial_bgw3c")
+
+[sub_resource type="Environment" id="Environment_lrvbd"]
+background_mode = 2
+sky = SubResource("Sky_vn7o3")
+ambient_light_source = 3
+reflected_light_source = 1
+tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.08198736, 0.09335431, 0.11104179, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_end = 150.0
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_lrvbd")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c43vm")
+autoplay = true

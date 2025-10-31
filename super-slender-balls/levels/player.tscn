@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://brl64dwoba154"]
+
+[ext_resource type="Script" uid="uid://b8ldosqc0xolx" path="res://levels/player.gd" id="1_r3jqh"]
+[ext_resource type="Texture2D" uid="uid://bb0vwyxxnlmn1" path="res://icon.svg" id="2_11i6m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jirdo"]
+rough = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_57e5w"]
+radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57e5w"]
+albedo_color = Color(0, 1, 1, 1)
+albedo_texture = ExtResource("2_11i6m")
+
+[sub_resource type="SphereMesh" id="SphereMesh_vn7o3"]
+material = SubResource("StandardMaterial3D_57e5w")
+radius = 3.0
+height = 6.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kx6l7"]
+bottom_radius = 0.0
+
+[node name="player" type="RigidBody3D"]
+collision_layer = 2
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_jirdo")
+gravity_scale = 4.0
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_r3jqh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_57e5w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_vn7o3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5671556)
+light_energy = 5000.0
+spot_range = 46.735
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.433401e-08, -2.5536072)
+mesh = SubResource("CylinderMesh_kx6l7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6172633, 0)
+light_energy = 2.741
+omni_range = 34.613

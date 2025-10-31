@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckw3maubvj6ed"]
+
+[ext_resource type="Script" uid="uid://egpetf7dew1q" path="res://levels/player_catcher.gd" id="1_01t0h"]
+[ext_resource type="AudioStream" uid="uid://dc4ng8kuj16kx" path="res://audio/scream1.ogg" id="2_kai42"]
+[ext_resource type="AudioStream" uid="uid://8kckmbk376gq" path="res://audio/scream2.ogg" id="3_8dy8e"]
+[ext_resource type="AudioStream" uid="uid://coijsudyp6xo2" path="res://audio/scream3.ogg" id="4_ngj0c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3sk1a"]
+size = Vector3(1000, 4, 1000)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w200a"]
+streams_count = 3
+stream_0/stream = ExtResource("2_kai42")
+stream_1/stream = ExtResource("3_8dy8e")
+stream_2/stream = ExtResource("4_ngj0c")
+
+[node name="Area3D2" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_01t0h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3sk1a")
+debug_color = Color(0.96950275, 2.2140146e-06, 0.46405947, 0.41960785)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 75, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_w200a")
+volume_db = 10.0
