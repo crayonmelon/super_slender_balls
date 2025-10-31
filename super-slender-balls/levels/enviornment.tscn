@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs1gtndoyootr"]
+[gd_scene load_steps=10 format=3 uid="uid://cs1gtndoyootr"]
 
 [ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="1_eroau"]
 [ext_resource type="AudioStream" uid="uid://b3v46slfwltjp" path="res://audio/628569__danilgamedev__scary-music.ogg" id="2_c43vm"]
+[ext_resource type="Shader" uid="uid://bojn38py1nsg3" path="res://levels/crt.gdshader" id="3_kuent"]
+[ext_resource type="Shader" uid="uid://cff8xv7thi1tp" path="res://levels/buckshot.gdshader" id="4_u32p2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw3c"]
 panorama = ExtResource("1_eroau")
@@ -14,13 +16,59 @@ background_mode = 2
 sky = SubResource("Sky_vn7o3")
 ambient_light_source = 3
 reflected_light_source = 1
-tonemap_mode = 2
+tonemap_mode = 3
+tonemap_exposure = 1.86
+glow_enabled = true
+glow_bloom = 0.14
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.08198736, 0.09335431, 0.11104179, 1)
-fog_density = 1.0
+fog_light_color = Color(0.02470481, 0.030120717, 0.03833427, 1)
+fog_density = 0.8065
 fog_sky_affect = 0.0
 fog_depth_end = 150.0
+adjustment_enabled = true
+adjustment_contrast = 1.35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u32p2"]
+shader = ExtResource("3_kuent")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3230000153425
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 10.1
+shader_parameter/roll_size = 2.3560001119100002
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.15200000722
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 3.255
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.6150000292125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjpmn"]
+shader = ExtResource("4_u32p2")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_lrvbd")
@@ -28,3 +76,30 @@ environment = SubResource("Environment_lrvbd")
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_c43vm")
 autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(0.80859876, 1, 0.49983323, 1)
+light_energy = 1.485
+light_angular_distance = 79.79
+light_specular = 0.0
+directional_shadow_blend_splits = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_u32p2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+material = SubResource("ShaderMaterial_sjpmn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

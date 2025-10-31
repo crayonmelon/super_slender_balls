@@ -4,7 +4,7 @@ extends Node3D
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var audio_stream_player: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer
-@onready var area_3d: Area3D = $TiltControls/Area3D
+@export var area_3d: Area3D
 
 func _ready() -> void:
 	area_3d.body_entered.connect(page_entered)
