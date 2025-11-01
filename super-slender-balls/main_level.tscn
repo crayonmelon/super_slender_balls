@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bkev3r5j7ekpw" path="res://SUPER_SLENDER_BALLS.png" id="7_ctebd"]
 [ext_resource type="Texture2D" uid="uid://imd46olsk0oi" path="res://images/blood splatter.png" id="7_oeaww"]
 [ext_resource type="Texture2D" uid="uid://b2rjb7luij8fh" path="res://images/skybox.jpg" id="8_5fjre"]
-[ext_resource type="Shader" uid="uid://bojn38py1nsg3" path="res://levels/crt.gdshader" id="9_oeaww"]
-[ext_resource type="Shader" uid="uid://cff8xv7thi1tp" path="res://levels/buckshot.gdshader" id="10_aonjr"]
+[ext_resource type="Shader" path="res://levels/crt.gdshader" id="9_oeaww"]
+[ext_resource type="Shader" path="res://levels/buckshot.gdshader" id="10_aonjr"]
 [ext_resource type="Texture2D" uid="uid://bsdarprqujsjt" path="res://feral dog_feral dog texture.png" id="12_aonjr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do8ha"]
